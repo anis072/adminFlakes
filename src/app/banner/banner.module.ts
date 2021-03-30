@@ -8,12 +8,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [BannerComponent, ProfilePictureComponent],
+  declarations: [ ProfilePictureComponent],
   imports: [
     CommonModule,
     BrowserModule,
-    ReactiveFormsModule,
-    FormsModule
   ],
   exports :[]
 })

@@ -18,6 +18,7 @@ import { ToAstrService } from './service/toAstr.service';
 import { ExpertiseComponent } from '../expertise/expertise/expertise.component';
 import { BannerComponent } from '../banner/banner/banner.component';
 import { ExportService } from '../service/export.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -25,9 +26,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 };
 
 @NgModule({
-  declarations: [SidebarComponent,HeaderComponent,FooterComponent,ContainerComponent],
+  declarations: [SidebarComponent,HeaderComponent,FooterComponent,ContainerComponent,BannerComponent],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     CollapseModule.forRoot(),
     DxVectorMapModule,
     HttpClientModule,

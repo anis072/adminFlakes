@@ -11,9 +11,9 @@ import { ToAstrService } from 'src/app/layouts/service/toAstr.service';
 })
 export class MaquManagmentComponent implements OnInit {
   maqForm : FormGroup;
- itemId;
- maq :any;
- event: EventEmitter<any> = new EventEmitter();
+  itemId;
+  maq :any;
+  event: EventEmitter<any> = new EventEmitter();
   constructor(private fb : FormBuilder,
               private modalService : BsModalService,
               private maqService : MaquilleuseService,
@@ -76,6 +76,7 @@ export class MaquManagmentComponent implements OnInit {
         console.log(data);
         this.toastrService.success('Maquillieuse est Modifier avec succeés', 'Succès');
         this.modalService.hide(1);
+        window.location.reload();
         this.event.emit("ok");
       },
       error:err=>{

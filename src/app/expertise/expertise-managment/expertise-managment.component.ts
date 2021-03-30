@@ -16,7 +16,7 @@ export class ExpertiseManagmentComponent implements OnInit {
   itemId;
   event: EventEmitter<any> = new EventEmitter();
   constructor(private fb : FormBuilder,
-              private modalService :BsModalService,
+              private modalService : BsModalService,
               private expertiseService :ExprtiseService,
               private toastr : ToAstrService) { }
   ngOnInit(): void {
@@ -55,7 +55,7 @@ export class ExpertiseManagmentComponent implements OnInit {
         this.toastr.success('Expertise mis a jour avec succeés','Sucess');
         this.modalService.hide(1);
         this.event.emit("ok");
-        console.log('hereeeeeeeeeeee')
+        window.location.reload();
 
        },
        error: err=>{
