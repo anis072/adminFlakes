@@ -1,0 +1,49 @@
+<div *ngIf="itemId == ''">
+<div class=" card card-pricing  border-0 text-center mb-4" >
+  <div class=" card-header bg-danger ">
+    <div class="text-right"  >
+
+      <i class="ni ni-fat-remove text-white removeIcon" (click)="onHide()" ></i>
+    </div>
+    <h4 class=" text-uppercase ls-1 text-white py-3 mb-0">Ajouter Expertise </h4>
+  </div>
+</div>
+<div class="modal-body pt-1"  >
+  <form [formGroup]="maqForm" (ngSubmit)="submit()">
+    <div class="form-group" >
+      <label for="quan">Libellée</label>
+      <input type="text" formControlName="lebelle"   class="form-control" id="lastname"
+        placeholder="Libellé">
+        <app-validator-message [control]="maqForm.controls.lebelle" ></app-validator-message>
+        </div>
+
+    <div class="text-center">
+      <button class="btn bg-danger text-white">Ajouter </button>
+    </div>
+  </form>
+</div>
+</div>
+<div *ngIf="itemId != '' ">
+<div class=" card card-pricing  border-0 text-center mb-4" >
+  <div class=" card-header bg-danger ">
+    <div class="text-right" >
+      <i class="ni ni-fat-remove text-white removeIcon"  (click)="onHide()" ></i>
+    </div>
+    <h4 class=" text-uppercase ls-1 text-white py-3 mb-0">Modifier Expertise</h4>
+  </div>
+</div>
+<div class="modal-body pt-1"  >
+  <form [formGroup]="maqEditForm" (ngSubmit)="submit()">
+    <div class="form-group" >
+      <label for="quan">Libellée</label>
+      <input type="text" formControlName="libelle" [(ngModel)]="expertise.libelle"  class="form-control" id="lastname"
+        placeholder="Libellé">
+        <app-validator-message [control]="maqEditForm.controls.libelle" ></app-validator-message>
+        </div>
+
+    <div class="text-center">
+      <button class="btn bg-danger text-white">Modifier </button>
+    </div>
+  </form>
+</div>
+</div>

@@ -1,0 +1,107 @@
+<div class=" header  bg-danger pb-6">
+  <div class=" container-fluid">
+    <div class=" header-body">
+      <div class=" row-reverse  align-items-center justify-content:flex-end py-2">
+        <div class=" col-lg-6 col-7 row-reverse ">
+          <form class="navbar-search navbar-search-light form-inline mr-sm-3 mt-3" id="navbar-search-main">
+            <div class="form-group " [ngClass]="{ focused: focus === true }" >
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-search"></i></span>
+                </div>
+                <input class="form-control" [(ngModel)]="maquilleuseSearch" [ngModelOptions]="{standalone: true}" placeholder="Search" type="text" (focus)="focus = true"
+                  (blur)="focus = false" />
+              </div>
+            </div>
+
+            <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main"
+              aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </form>
+        </div>
+
+        <!--
+          <div class=" col-lg-6 col-6 text-left">
+          <h3>Listes des gérants</h3>
+        </div>
+        -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class=" container-fluid mt--5">
+  <div class=" row">
+    <div class=" col">
+      <div class=" card ">
+        <div class=" card-header border-0">
+          <h3 class=" mb-0">Listes des maquilleuses</h3>
+        </div>
+        <div class=" table-responsive">
+          <table class=" table align-items-center table-flush">
+            <thead class=" thead-light">
+              <tr>
+                <th>Nom </th>
+                <th>Nom d'utilsateur</th>
+                <th>email </th>
+                <th>Telephone</th>
+                <th>Slogan</th>
+                <th>Rue</th>
+                <th>expertises</th>
+                <th>Villes</th>
+                <th>nombre d'images</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of filtredmaq ">
+              <tr>
+                <td class=" table-user">{{ item.firstname }} {{ item.lastname }}</td>
+                <td>{{ item.username }}</td>
+                <td>{{ item.emailAdress }}
+                </td>
+                <td>
+                  {{ item.phone }}
+                </td>
+                <td>
+                  {{ item.slogan }}
+                </td>
+                <td>
+                  {{ item.street }}
+                </td>
+                <td>
+                  <span *ngFor="let itemE of item.expertises"> </span>
+                </td>
+                <td>{{ item.cities.city }}</td>
+                <td>{{ item.nbImages }}</td>
+                <td> <a class="table-action table-action-delete" tooltip="Delete product" placement="top"
+                    href="javascript:void(0)">
+                    <i class="fas fa-trash text-danger " (click)="delete(item.username)">
+                    </i>
+                    </a>
+                    <a class="table-action table-action-delete" tooltip="Delete product" placement="top"
+                      href="javascript:void(0)"  (click)="openModal(item.username)">
+                      <i class="fas fa-edit text-info">
+                      </i>
+                    </a>
+                    <a class="table-action table-action-delete" tooltip="Delete product" placement="top"
+                    href="javascript:void(0)"  >
+                    <i class="fas fa-file-export text-info" (click)="exportToCv(item.username)">
+                    </i>
+                  </a>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <nav aria-label="...">
+
+        </nav>
+      </div>
+
+    </div>
+  </div>
+</div>
