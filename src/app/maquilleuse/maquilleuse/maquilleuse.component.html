@@ -42,6 +42,7 @@
           <table class=" table align-items-center table-flush">
             <thead class=" thead-light">
               <tr>
+                <th></th>
                 <th>Nom </th>
                 <th>Nom d'utilsateur</th>
                 <th>email </th>
@@ -51,11 +52,13 @@
                 <th>expertises</th>
                 <th>Villes</th>
                 <th>nombre d'images</th>
+                <th>Images</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody *ngFor="let item of filtredmaq ">
               <tr>
+                <td><img [src]="item.photo_profile" style="width: 50px;"></td>
                 <td class=" table-user">{{ item.firstname }} {{ item.lastname }}</td>
                 <td>{{ item.username }}</td>
                 <td>{{ item.emailAdress }}
@@ -74,6 +77,7 @@
                 </td>
                 <td>{{ item.cities.city }}</td>
                 <td>{{ item.nbImages }}</td>
+                <td ><span *ngFor="let item of item.photosUrl">{{ item?.url }}</span></td>
                 <td> <a class="table-action table-action-delete" tooltip="Delete product" placement="top"
                     href="javascript:void(0)">
                     <i class="fas fa-trash text-danger " (click)="delete(item.username)">

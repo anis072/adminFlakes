@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Message } from 'primeng/api';
 import { forkJoin } from 'rxjs';
 import { BannerService } from 'src/app/layouts/service/banner.service';
+import { ToAstrService } from 'src/app/layouts/service/toAstr.service';
 import  swal  from 'sweetalert2';
 @Component({
   selector: 'app-banner',
@@ -19,7 +20,8 @@ export class BannerComponent implements OnInit {
   photo;
   res ;
   constructor(private bannerService: BannerService,
-            private fb:FormBuilder) { }
+              private fb:FormBuilder,
+              private toastrService : ToAstrService) { }
 
   ngOnInit(): void {
     this.getBanner();
@@ -28,7 +30,6 @@ export class BannerComponent implements OnInit {
   }
   uploadPhotos(event){
     console.log(event.target.files)
-
     if (event.target.files && event.target.files[0]) {
       if (event.target.files[0].size > 1_000_000) {
         this.isPhotoValid = false;
@@ -70,9 +71,9 @@ export class BannerComponent implements OnInit {
 
   }
   submit(){
-   if(this.res.length){
+    console.log(this.res);
+   if(this.res){
     console.log(this.res[0].url);
-
     this.bannerService.postPhotos(this.res[0].url).subscribe({
      next : data=> {
        console.log(data);
@@ -82,6 +83,9 @@ export class BannerComponent implements OnInit {
        console.log(err);
      }
    })
+   }
+   else {
+     this.toastrService.danger('Erreur','Entrez une image valide !!')
    }
 
   }
