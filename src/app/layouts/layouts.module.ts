@@ -19,6 +19,7 @@ import { ExpertiseComponent } from '../expertise/expertise/expertise.component';
 import { BannerComponent } from '../banner/banner/banner.component';
 import { ExportService } from '../service/export.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DetailComponent } from '../maquilleuse/detail/detail.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -52,6 +53,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         {
           path:'banner',
           component : BannerComponent
+        },
+        {
+          path:'detail/:id',
+          component: DetailComponent
         }
       ]
       }

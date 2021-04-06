@@ -43,11 +43,12 @@ export class MaquilleuseComponent implements OnInit {
       console.log(data);
       this.maquillieuses$ = data;
       this.filtredmaq = data;
+      console.log(this.maquillieuses$);
          },
      error: err=>{
-       console. log(err)
+       console. log(err);
      }
-   })
+   });
   }
   getMaqById(username){
     this.maqService.getMaq(username).subscribe({

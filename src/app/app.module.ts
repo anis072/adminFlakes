@@ -14,7 +14,8 @@ import { ExpertiseComponent } from './expertise/expertise/expertise.component';
 import { ExpertiseManagmentComponent } from './expertise/expertise-managment/expertise-managment.component';
 import { LoginComponent } from './login/login.component';
 import { ButtonsModule } from 'ngx-bootstrap';
-import { TabViewModule } from 'primeng/tabview'
+import { TabViewModule } from 'primeng/tabview';
+import { DetailComponent } from './maquilleuse/detail/detail.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { TabViewModule } from 'primeng/tabview'
     ExpertiseComponent,
     ExpertiseManagmentComponent,
     LoginComponent,
+    DetailComponent,
 
   ],
   imports: [

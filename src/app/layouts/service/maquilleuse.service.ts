@@ -21,4 +21,8 @@ export class MaquilleuseService {
   edit(username){
     return this.http.put(this.url+'updateMaquilleuse',username);
   }
+  deletePhoto(id){
+  return this.http.delete('http://localhost:3050/photos/'+id)
+
+  }
 }

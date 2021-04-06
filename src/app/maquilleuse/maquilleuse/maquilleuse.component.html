@@ -59,7 +59,7 @@
             <tbody *ngFor="let item of filtredmaq ">
               <tr>
                 <td><img [src]="item.photo_profile" style="width: 50px;"></td>
-                <td class=" table-user">{{ item.firstname }} {{ item.lastname }}</td>
+                <td class=" table-user" ><a [routerLink]="['/eval/detail/'+item.idMaquilleuse]" routerLinkActive="router-link-active" >{{ item.firstname }} {{ item.lastname }}</a></td>
                 <td>{{ item.username }}</td>
                 <td>{{ item.emailAdress }}
                 </td>
