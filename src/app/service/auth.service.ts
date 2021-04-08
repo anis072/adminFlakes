@@ -13,9 +13,11 @@ export class AuthService {
   login(cred){
    return this.http.post('http://localhost:3050/user/login',cred).pipe(map(user=>{
      window.localStorage.setItem('token',JSON.stringify(user));
+
    }));
   }
   logout(){
+    window.localStorage.clear();
     this.router.navigate([''])
   }
 }

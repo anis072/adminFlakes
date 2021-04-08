@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { ButtonsModule } from 'ngx-bootstrap';
 import { TabViewModule } from 'primeng/tabview';
 import { DetailComponent } from './maquilleuse/detail/detail.component'
+import { AuthGuard } from './service/auth.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +42,7 @@ import { DetailComponent } from './maquilleuse/detail/detail.component'
       {
         path: 'eval',
         loadChildren: () => import('./layouts/layouts.module').then(m => m.LayoutsModule),
+        canActivate:[AuthGuard]
       },
       {
         path:'',
