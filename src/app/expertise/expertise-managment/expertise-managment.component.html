@@ -12,10 +12,37 @@
   <form [formGroup]="maqForm" (ngSubmit)="submit()">
     <div class="form-group" >
       <label for="quan">Libellée</label>
-      <input type="text" formControlName="lebelle"   class="form-control" id="lastname"
+      <input type="text" formControlName="lebelle" [ngClass]="{'is-invalid': submited && maqForm.get('lebelle').invalid}"   class="form-control" id="lastname"
         placeholder="Libellé">
         <app-validator-message [control]="maqForm.controls.lebelle" ></app-validator-message>
         </div>
+        <div class="form-check">
+          <input class="form-check-input" value="Maquillage" type="radio" formControlName="type" [ngClass]="{'is-invalid': submited && maqForm.get('type').invalid}" id="flexRadioDefault1">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Maquillages
+          </label>
+        </div>
+        <div class="form-check">
+
+          <input class="form-check-input" type="radio" value="MicroBlading" formControlName="type" [ngClass]="{'is-invalid': submited && maqForm.get('type').invalid}" id="flexRadioDefault2" >
+          <label class="form-check-label" for="flexRadioDefault2">
+          MicroBlading
+          </label>
+        </div>
+        <div class="form-check">
+
+          <input class="form-check-input" type="radio" value="Manucure" [ngClass]="{'is-invalid': submited && maqForm.get('type').invalid}" formControlName="type" id="flexRadioDefault2" >
+          <label class="form-check-label" for="flexRadioDefault2">
+         Manucure
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" value="extension" formControlName="type" [ngClass]="{'is-invalid': submited && maqForm.get('type').invalid}" id="flexRadioDefault2" >
+          <label class="form-check-label" for="flexRadioDefault2">
+         Extension de cils
+          </label>
+        </div>
+        <app-validator-message [control]="maqForm.controls.type" ></app-validator-message>
 
     <div class="text-center">
       <button class="btn bg-danger text-white">Ajouter </button>
@@ -36,10 +63,37 @@
   <form [formGroup]="maqEditForm" (ngSubmit)="submit()">
     <div class="form-group" >
       <label for="quan">Libellée</label>
-      <input type="text" formControlName="libelle" [(ngModel)]="expertise.libelle"  class="form-control" id="lastname"
+      <input type="text" formControlName="lebelle" [(ngModel)]="expertise.libelle"  class="form-control" id="lastname"
         placeholder="Libellé">
-        <app-validator-message [control]="maqEditForm.controls.libelle" ></app-validator-message>
+        <app-validator-message [control]="maqEditForm.controls.lebelle" ></app-validator-message>
         </div>
+        <div class="form-check">
+          <input class="form-check-input" value="Maquillage" type="radio"  [(ngModel)]="expertise.type" formControlName="type" [ngClass]="{'is-invalid': submited && maqEditForm.get('type').invalid}" id="flexRadioDefault1">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Maquillages
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" value="MicroBlading" [(ngModel)]="expertise.type" formControlName="type" [ngClass]="{'is-invalid': submited && maqEditForm.get('type').invalid}" id="flexRadioDefault2" >
+          <label class="form-check-label" for="flexRadioDefault2">
+          MicroBlading
+          </label>
+        </div>
+        <div class="form-check">
+
+          <input class="form-check-input" type="radio" value="Manucure" [(ngModel)]="expertise.type" [ngClass]="{'is-invalid': submited && maqEditForm.get('type').invalid}" formControlName="type" id="flexRadioDefault2" >
+          <label class="form-check-label" for="flexRadioDefault2">
+         Manucure
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" value="extension" [(ngModel)]="expertise.type" formControlName="type" [ngClass]="{'is-invalid': submited && maqEditForm.get('type').invalid}" id="flexRadioDefault2" >
+          <label class="form-check-label" for="flexRadioDefault2">
+         Extension de cils
+          </label>
+        </div>
+        <app-validator-message [control]="maqForm.controls.type" ></app-validator-message>
+
 
     <div class="text-center">
       <button class="btn bg-danger text-white">Modifier </button>
