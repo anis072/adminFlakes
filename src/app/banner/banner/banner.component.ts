@@ -17,7 +17,7 @@ export class BannerComponent implements OnInit {
   files: File[] = [];
   isPhotoValid = true;
   photosUrl = [];
-  photo;
+  photo :any =[];
   res ;
   constructor(private bannerService: BannerService,
               private fb:FormBuilder,

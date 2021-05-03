@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import {​​ BrowserAnimationsModule }​​ from '@angular/platform-browser/animations'
 import { AppComponent } from './app.component';
 import { MaquilleuseComponent } from './maquilleuse/maquilleuse/maquilleuse.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MaquManagmentComponent } from './maquilleuse/maqu-managment/maqu-managment.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
@@ -18,6 +18,9 @@ import { TabViewModule } from 'primeng/tabview';
 import { DetailComponent } from './maquilleuse/detail/detail.component'
 import { AuthGuard } from './service/auth.guard';
 import {MatPaginatorModule} from "@angular/material/paginator";
+import { SpinnerComponent } from './spinner/spinner.component';
+import { SpinnerService } from './spinner/spinner.service';
+import { SpinnerInterceptorService } from './spinner/spinner-interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +30,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     ExpertiseManagmentComponent,
     LoginComponent,
     DetailComponent,
+    SpinnerComponent,
 
   ],
   imports: [
@@ -53,7 +57,14 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     ])
   ],
 
-  providers: [BsModalRef],
+  providers: [
+    BsModalRef,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SpinnerInterceptorService,
+      multi: true,
+    },
+  ],
   entryComponents:[MaquManagmentComponent],
   bootstrap: [AppComponent],
 

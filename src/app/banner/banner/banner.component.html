@@ -32,7 +32,7 @@
               <span class="btn btn-default btn-file">
                   <input id="input-2" name="input2[]"  (change)="uploadPhotos($event)" type="file" class="file"  data-show-upload="true" data-show-caption="true">
               </span>
-              <span><input type="button" value="Envoyer" class="btn btn-primary" (click)="submit()"> </span>
+              <span><input type="button" value="Envoyer" class="btn btn-primary" (click)="submit()" [disabled]="photo.length === 5"> </span>
           </div>
 
 

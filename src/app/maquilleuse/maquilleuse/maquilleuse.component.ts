@@ -20,7 +20,7 @@ export class MaquilleuseComponent implements OnInit {
   maq;
   pageSize = 5;
     public pageSlice = [];
-  filtredmaq:any;
+  filtredmaq:any =[]
   bsModalRef: BsModalRef;
   subscription: Subscription = new Subscription();
   get maquilleuseSearch() {

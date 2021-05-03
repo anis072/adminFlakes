@@ -20,7 +20,7 @@ export class ExpertiseComponent implements OnInit {
   nbManucure=0;
   nbMicroblading=0;
   public pageSlice = [];
-  filtredExpertises
+  filtredExpertises:any=[]
   _expertise;
   get expertiseSearch() {
     return this._expertise;
