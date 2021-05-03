@@ -1,0 +1,169 @@
+<div class=" header  bg-danger pb-6">
+  <div class=" container-fluid">
+    <div class=" header-body">
+      <div class=" row-reverse  align-items-center justify-content:flex-end py-2">
+        <div class=" col-lg-6 col-7 row-reverse ">
+          <form class="navbar-search navbar-search-light form-inline mr-sm-3 mt-3" id="navbar-search-main">
+            <div class="form-group " [ngClass]="{ focused: focus === true }">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-search"></i></span>
+                </div>
+                <input class="form-control" placeholder="Search" type="text" (focus)="focus = true"
+                  (blur)="focus = false" [(ngModel)]="expertiseSearch" [ngModelOptions]="{standalone: true}" />
+              </div>
+            </div>
+
+            <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main"
+              aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </form>
+        </div>
+
+        <div class="container-fluid mt-5" style="padding-left:0px !important; padding-right: 0px !important; ">
+          <div class="header-body">
+            <!-- Card stats -->
+            <div class="row">
+              <div class="col-xl-3 col-lg-6">
+                <div class="card card-stats mb-4 mb-xl-0">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">Maquillage</h5>
+                        <span class="h2 font-weight-bold mb-0">{{this.nbMaquillage}}</span>
+                      </div>
+                      <div class="col-auto">
+                        <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                          <img style="width:25px; height:25px" src="./assets/img/icons/brush.svg">
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6">
+                <div class="card card-stats mb-4 mb-xl-0">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">Extension de cils</h5>
+                        <span class="h2 font-weight-bold mb-0">{{this.nbExentesion}}</span>
+                      </div>
+                      <div class="col-auto">
+                        <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                          <img style="width:25px; height:25px" src="./assets/img/icons/eye-make-up.svg">
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6">
+                <div class="card card-stats mb-4 mb-xl-0">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">Microblading</h5>
+                        <span class="h2 font-weight-bold mb-0">{{this.nbMicroblading}}</span>
+                      </div>
+                      <div class="col-auto">
+                        <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                          <img style="width:25px; height:25px" src="./assets/img/icons/liner.svg">
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6">
+                <div class="card card-stats mb-4 mb-xl-0">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">Manucure</h5>
+                        <span class="h2 font-weight-bold mb-0">{{this.nbManucure}}</span>
+                      </div>
+                      <div class="col-auto">
+                        <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                          <img style="width:25px; height:25px" src="./assets/img/icons/nail-polish.svg">
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+
+<div class=" container-fluid mt--5">
+  <div class=" row">
+    <div class=" col">
+      <div class=" card ">
+        <div class=" card-header border-0 d-flex justify-content-between">
+          <h3 class=" mb-0">Listes des Expertises</h3>
+          <button class="btn btn-primary" style="float: left;" (click)="openModal('')">Ajouter</button>
+        </div>
+        <div>
+
+        </div>
+        <div class=" table-responsive">
+          <table class=" table align-items-center table-flush">
+            <thead class=" thead-light">
+              <tr>
+                <th>ID</th>
+                <th>Libellée</th>
+                <th>Type</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of pageSlice">
+                <tr>
+                 <td>{{ item.idExpertise }}</td>
+                 <td> {{ item.libelle }}</td>
+                 <td> {{ item.type }}</td>
+                 <td><a class="table-action table-action-delete" tooltip="Delete product" placement="top"
+                  href="javascript:void(0)">
+                  <i class="fas fa-trash text-danger " (click)="delete(item.idExpertise)">
+                  </i>
+                  </a>
+                  <a class="table-action table-action-delete" tooltip="Delete product" placement="top"
+                    href="javascript:void(0)"  (click)="openModal(item.idExpertise)">
+                    <i class="fas fa-edit text-info">
+                    </i>
+                  </a></td>
+                </tr>
+
+
+            </tbody>
+          </table>
+          <mat-paginator
+
+            [length]="this.filtredExpertises.length"
+            [pageSizeOptions]="[5, 10, 100]"
+            [pageSize]="this.pageSize"
+            (page)="onPageChange($event)"
+
+          >
+          </mat-paginator>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <nav aria-label="...">
+
+        </nav>
+      </div>
+
+    </div>
+  </div>
+</div>

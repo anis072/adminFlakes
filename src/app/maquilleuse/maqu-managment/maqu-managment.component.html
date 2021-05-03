@@ -1,0 +1,61 @@
+<div class=" card card-pricing  border-0 text-center mb-4">
+  <div class=" card-header bg-danger ">
+    <div class="text-right" (click)="onHide()" >
+      <i class="ni ni-fat-remove text-white removeIcon" ></i>
+    </div>
+    <h4 class=" text-uppercase ls-1 text-white py-3 mb-0">Modifer Maquilleuse</h4>
+  </div>
+</div>
+<div class="modal-body pt-1"  >
+  <form [formGroup]="maqForm" (ngSubmit)="submit()">
+    <div class="form-group" >
+      <label for="name">Nom</label>
+      <input type="text" class="form-control" id="firstname" formControlName="firstname"
+       placeholder="Nom" [(ngModel)]="maq.firstname">
+       <app-validator-message [control]="maqForm.controls.firstname" ></app-validator-message>
+      </div>
+
+    <div class="form-group" >
+      <label for="quan">Prénom</label>
+      <input type="text" formControlName="lastname"  [(ngModel)]="maq.lastname" class="form-control" id="lastname"
+        placeholder="Prénom">
+        <app-validator-message [control]="maqForm.controls.lastname" ></app-validator-message>
+        </div>
+    <div class="form-group" >
+      <label for="email">Email</label>
+      <input type="email" formControlName="emailAdress" class="form-control"  [(ngModel)]="maq.emailAdress" id="email"
+        placeholder="Email">
+        <app-validator-message [control]="maqForm.controls.emailAdress" ></app-validator-message>
+
+    </div>
+    <div class="form-group">
+      <label for="phone">Téléphone</label>
+      <input type="number" formControlName="phone" [(ngModel)]="maq.phone" class="form-control" id="phone"
+         placeholder="Téléphone">
+         <app-validator-message [control]="maqForm.controls.phone" ></app-validator-message>
+    </div>
+    <div class="form-group">
+      <label for="cin">Slogan</label>
+      <input type="text" formControlName="slogan" class="form-control"  [(ngModel)]="maq.slogan" id="cin"
+         placeholder="slogan">
+         <app-validator-message [control]="maqForm.controls.slogan" ></app-validator-message>
+    </div>
+    
+    <div class="form-group">
+      <label for="cin">nombres d'images</label>
+      <input type="text" formControlName="nbImages" class="form-control"  [(ngModel)]="maq.nbImages" id="cin"
+         placeholder="nbre d'images">
+         <app-validator-message [control]="maqForm.controls.nbImages" ></app-validator-message>
+    </div>
+    <div class="form-group">
+      <label for="cin">Rue</label>
+      <input type="text" formControlName="street"  [(ngModel)]="maq.street" class="form-control" id="cin"
+         placeholder="rue">
+         <app-validator-message [control]="maqForm.controls.street" ></app-validator-message>
+
+    </div>
+    <div class="text-center">
+      <button class="btn bg-danger text-white">Modifier </button>
+    </div>
+  </form>
+</div>

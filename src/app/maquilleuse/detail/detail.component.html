@@ -1,0 +1,56 @@
+<div class=" header  bg-danger pb-6">
+  <div class=" container-fluid">
+    <div class=" header-body">
+      <div class=" row-reverse  align-items-center justify-content:flex-end py-2">
+        <div class=" col-lg-6 col-7 row-reverse ">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class=" container-fluid mt--5">
+  <div class=" row">
+    <div class=" col">
+      <div class=" card ">
+        <div class=" card-header border-0">
+          <h3 class=" mb-0">Listes des maquilleuses</h3>
+        </div>
+        <div class=" table-responsive">
+          <table class=" table align-items-center table-flush">
+            <thead class=" thead-light">
+              <tr>
+                <th></th>
+                <th>Image</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of maq">
+              <tr *ngFor="let item of item.photosUrl">
+                <td >
+                  <img [src]="item.url" style="width: 50px;">
+                </td>
+                <td></td>
+
+                <td>
+                  <a class="table-action table-action-delete" tooltip="Delete product" placement="top"
+                      href="javascript:void(0)"  (click)="delete(item.id)">
+                      <i class="fas fa-trash text-info">
+                      </i>
+                    </a>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <nav aria-label="...">
+
+        </nav>
+      </div>
+
+    </div>
+  </div>
+</div>
+
